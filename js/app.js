@@ -44,16 +44,24 @@ class Player extends Sprite {
 	handleInput(direction) {
 		switch (direction) {
 			case 'left':
-				this.x -= 1;
+				if (this.x > 0) {
+					this.x -= 1;
+				}
 				break;
 			case 'right':
-				this.x += 1;
+				if (this.x < 4) {
+					this.x += 1;
+				}
 				break;
 			case 'up':
-				this.y += 1;
+				if (this.y > 0) {
+					this.y -= 1;
+				}
 				break;
 			case 'down':
-				this.y -= 1;
+				if (this.y < 6) {
+					this.y += 1;
+				}
 				break;
 		}
 	}
@@ -89,5 +97,5 @@ document.addEventListener('keyup', function(e) {
 		87: 'up'
 	};
 
-	Player.handleInput(allowedKeys[e.keyCode]);
+	player.handleInput(allowedKeys[e.keyCode]);
 });

@@ -20,16 +20,16 @@ let Engine = (function(global) {
 	 */
 	let doc = global.document,
 		win = global.window,
-		canvas = doc.createElement('canvas'),
-		canvasFallback = document.createTextNode(
-			'You browser does not support this game.'),
+		canvas = document.getElementById('gameboard'),
+		//canvasFallback = document.createTextNode(
+		//'You browser does not support this game.'),
 		ctx = canvas.getContext('2d'),
 		lastTime;
 
-	canvas.width = 505;
-	canvas.height = 606;
-	doc.body.appendChild(canvas);
-	canvas.appendChild(canvasFallback);
+	//canvas.width = 505;
+	//canvas.height = 606;
+	//doc.body.appendChild(canvas);
+	//canvas.appendChild(canvasFallback);
 
 
 	/* This function serves as the kickoff point for the game loop itself
