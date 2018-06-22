@@ -1,6 +1,12 @@
-frontend-nanodegree-arcade-game
+Avoid the Bugs!!!
 ===============================
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+Welcome to my simple, classic arcade game - Avoid the Bugs!
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+
+Instructions:
+1. Use the arrow keys or WASD to move your character around.
+2. Avoid being in the same spot as the enemy bugs.
+3. When you collide with a bug, your character goes back to the starting position and you lose a life.
+4. You win the game by making it to the water before the bugs get you.
+5. You lose the game if you run out of lives.
