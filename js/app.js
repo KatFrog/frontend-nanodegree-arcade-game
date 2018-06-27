@@ -11,15 +11,54 @@ class Sprite {
 		ctx.drawImage(Resources.get(this.sprite), this.x * colSize + 10, this.y *
 			rowSize + 10); // The +10 is to get the image more centered.
 	}
+
+	findCorners(x, y, height, width) {
+		const colSize = 101;
+		const rowSize = 83;
+		let corners = [];
+		x = x * colSize + 10;
+		y = y * rowSize + 10;
+		// Top left corner
+		corners[0] = {
+			x: x,
+			y: y
+		};
+		// Top right corner
+		corners[1] = {
+			x: x + width,
+			y: y
+		};
+		// Bottom right corner
+		corners[2] = {
+			x: x,
+			y: y + height
+		};
+		// Bottom right corner
+		corners[3] = {
+			x: x + width,
+			y: y + height
+		};
+		return corners;
+	}
+
+	checkCollision(ax, ay, aHeight, aWidth, bx, by, bHeight, bWidth) {
+		// check for a collision between object a and object b
+		let aCorners = this.findCorners(ax, ay, aHeight, aWidth);
+		let bCorners = this.findCorners(bx, by, bHeight, bWidth);
+		console.log(aCorners, bCorners);
+	}
 };
 
 class Enemy extends Sprite {
-	constructor(imgFile = 'images/enemy-bug.png', speed = 1, x = -1, y = 2) {
+	constructor(imgFile = 'images/enemy-bug.png', speed = 1, x = -1, y = 2,
+		height = 68, width = 98) {
 		super();
 		this.sprite = imgFile;
 		this.speed = speed;
 		this.x = x;
 		this.y = y;
+		this.height = height;
+		this.width = width;
 	}
 
 	// Update the enemy's position, required method for game
@@ -35,12 +74,15 @@ class Enemy extends Sprite {
 }
 
 class Player extends Sprite {
-	constructor(imgFile = 'images/char-pink-girl.png', lives = 5, x = 2, y = 5) {
+	constructor(imgFile = 'images/char-pink-girl.png', lives = 5, x = 2, y = 5,
+		height = 78, width = 73) {
 		super();
 		this.sprite = imgFile;
 		this.lives = lives;
 		this.x = x;
 		this.y = y;
+		this.height = height;
+		this.width = width;
 	}
 
 	handleInput(direction) {
@@ -69,7 +111,18 @@ class Player extends Sprite {
 	}
 
 	update() {
-
+		let hit = false;
+		// Check for collisions with the allEnemies
+		for (let i = 0; i < allEnemies.length; i++) {
+			hit = this.checkCollision(this.x, this.y, this.height, this.width,
+				allEnemies[i].x, allEnemies[i].y, allEnemies[i].height, allEnemies[i].width
+			);
+			if (hit) {
+				this.x = 2;
+				this.y = 5;
+				return;
+			}
+		}
 	}
 
 }
