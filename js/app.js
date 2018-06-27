@@ -8,8 +8,8 @@ class Sprite {
 	render() {
 		const colSize = 101;
 		const rowSize = 83;
-		ctx.drawImage(Resources.get(this.sprite), this.x * colSize, this.y * rowSize -
-			60);
+		ctx.drawImage(Resources.get(this.sprite), this.x * colSize + 10, this.y *
+			rowSize + 10); // The +10 is to get the image more centered.
 	}
 };
 
@@ -35,7 +35,7 @@ class Enemy extends Sprite {
 }
 
 class Player extends Sprite {
-	constructor(imgFile = 'images/char-princess-girl.png', lives = 5, x = 2, y = 5) {
+	constructor(imgFile = 'images/char-pink-girl.png', lives = 5, x = 2, y = 5) {
 		super();
 		this.sprite = imgFile;
 		this.lives = lives;
