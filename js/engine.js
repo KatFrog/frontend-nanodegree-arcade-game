@@ -134,7 +134,7 @@ let Engine = (function(global) {
 				ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83 - 44);
 			}
 		}
-
+		ctx.drawImage(Resources.get('images/Star.png'), 212, 10);
 		renderEntities();
 	}
 
@@ -170,7 +170,11 @@ let Engine = (function(global) {
 		'images/water-block.png',
 		'images/grass-block.png',
 		'images/enemy-bug.png',
-		'images/char-boy.png'
+		'images/char-boy.png',
+		'images/char-princess-girl.png',
+		'images/char-cat-girl.png',
+		'images/char-pink-girl.png',
+		'images/Star.png'
 	]);
 	Resources.onReady(init);
 
