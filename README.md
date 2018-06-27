@@ -1,7 +1,7 @@
 Avoid the Bugs!!!
 ===============================
 
-Welcome to my simple, classic arcade game - Avoid the Bugs!
+Welcome to my simple, classic arcade game - The Self-Rescuing Princess!
 
 
 Instructions:

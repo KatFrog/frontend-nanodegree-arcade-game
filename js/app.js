@@ -35,7 +35,7 @@ class Enemy extends Sprite {
 }
 
 class Player extends Sprite {
-	constructor(imgFile = 'images/char-boy.png', lives = 5, x = 2, y = 5) {
+	constructor(imgFile = 'images/char-princess-girl.png', lives = 5, x = 2, y = 5) {
 		super();
 		this.sprite = imgFile;
 		this.lives = lives;

@@ -170,7 +170,10 @@ let Engine = (function(global) {
 		'images/water-block.png',
 		'images/grass-block.png',
 		'images/enemy-bug.png',
-		'images/char-boy.png'
+		'images/char-boy.png',
+		'images/char-princess-girl.png',
+		'images/char-cat-girl.png',
+		'images/char-pink-girl.png'
 	]);
 	Resources.onReady(init);
 
