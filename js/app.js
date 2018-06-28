@@ -138,6 +138,7 @@ class Player extends Sprite {
 				allEnemies[i].x, allEnemies[i].y, allEnemies[i].height, allEnemies[i].width
 			);
 			if (hit) {
+				collide.play();
 				this.x = 2;
 				this.y = 5;
 				return;
@@ -188,6 +189,10 @@ const startGame = document.getElementById('newGame');
 const winDialog = document.getElementById('wonGame');
 
 const music = document.getElementById('background-music');
+
+let collide = new Audio;
+
+collide.src = "sounds/hit.wav";
 
 
 

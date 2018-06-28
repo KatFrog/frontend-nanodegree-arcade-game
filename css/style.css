@@ -15,11 +15,6 @@ h1 {
     justify-content: center;
 }
 
-audio {
-    font-size: 10px;
-    line-height: 0.8;
-}
-
 .instructions {
     color: white;
     font-family: Arial, sans-serif, serif;
