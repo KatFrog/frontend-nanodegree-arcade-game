@@ -4,20 +4,22 @@
 // Base class for the Player and Enemy subclasses
 class Sprite {
 
+	constructor(colSize = 101, rowSize = 83) {
+		this.colSize = colSize;
+		this.rowSize = rowSize;
+	}
+
 	// Draw the sprite on the screen, required method for game
 	render() {
-		const colSize = 101;
-		const rowSize = 83;
-		ctx.drawImage(Resources.get(this.sprite), this.x * colSize + 10, this.y *
-			rowSize + 10); // The +10 is to get the image more centered.
+		ctx.drawImage(Resources.get(this.sprite), this.x * this.colSize + 10, this.y *
+			this.rowSize + 10); // The +10 is to get the image more centered.
 	}
 
 	findCorners(x, y, height, width) {
-		const colSize = 101;
-		const rowSize = 83;
+
 		let corners = [];
-		x = x * colSize + 10;
-		y = y * rowSize + 10;
+		x = x * this.colSize + 10;
+		y = y * this.rowSize + 10;
 		// Top left corner
 		corners[0] = {
 			x: x,
@@ -44,8 +46,16 @@ class Sprite {
 	checkCollision(ax, ay, aHeight, aWidth, bx, by, bHeight, bWidth) {
 		// check for a collision between object a and object b
 		let aCorners = this.findCorners(ax, ay, aHeight, aWidth);
-		let bCorners = this.findCorners(bx, by, bHeight, bWidth);
-		console.log(aCorners, bCorners);
+		bx = bx * this.colSize + 10;
+		by = by * this.rowSize + 10;
+		// Check each corner for a collision.  Return true if there is a hit.
+		for (let i = 0; i < aCorners.length; i++) {
+			if ((aCorners[i].x >= bx) && (aCorners[i].x <= (bx + bWidth)) &&
+				((aCorners[i].y >= bx) && (aCorners[i].y <= (by + bHeight)))) {
+				return true;
+			}
+		}
+		return false;
 	}
 };
 
