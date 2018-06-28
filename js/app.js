@@ -93,9 +93,14 @@ class Player extends Sprite {
 		this.y = y;
 		this.height = height;
 		this.width = width;
+		this.playing = false;
 	}
 
 	handleInput(direction) {
+		if (!this.playing) {
+			this.playing = true;
+			music.play();
+		}
 		switch (direction) {
 			case 'left':
 				if (this.x > 0) {
@@ -181,6 +186,10 @@ let player = new Player();
 const closeModal = document.getElementById('close');
 const startGame = document.getElementById('newGame');
 const winDialog = document.getElementById('wonGame');
+
+const music = document.getElementById('background-music');
+
+
 
 closeModal.addEventListener('click', function() {
 	winDialog.close();
