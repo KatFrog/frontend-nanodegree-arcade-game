@@ -120,6 +120,11 @@ class Player extends Sprite {
 		}
 	}
 
+	winGame() {
+		winDialog.showModal();
+	}
+
+
 	update() {
 		let hit = false;
 		// Check for collisions with the allEnemies
@@ -131,6 +136,14 @@ class Player extends Sprite {
 				this.x = 2;
 				this.y = 5;
 				return;
+			}
+		}
+		// If the player makes it to the water, display winning modal
+		if (this.y === 0) {
+			this.winGame();
+			for (let i = 0; i < allEnemies.length; i++) {
+				allEnemies[i].speed = 0;
+				allEnemies[i].x = -1;
 			}
 		}
 	}
@@ -165,14 +178,18 @@ const maxEnemies = 6;
 let allEnemies = createEnemies(maxEnemies);
 let player = new Player();
 
+const closeModal = document.getElementById('close');
+const startGame = document.getElementById('newGame');
+const winDialog = document.getElementById('wonGame');
 
+closeModal.addEventListener('click', function() {
+	winDialog.close();
+});
 
-
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
-
-
+startGame.addEventListener('click', function() {
+	winDialog.close();
+	window.location.reload(true);
+});
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
