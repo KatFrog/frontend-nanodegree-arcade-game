@@ -5,22 +5,14 @@
     <title>Rescue the Princess</title>
     <link rel="stylesheet prefetch" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
     <header>
         <h1>Rescue the Princess</h1>
     </header>
     <div class='container'>
-        <!-- <section class='lives'>
-            <ul>
-                <li>Lives:&nbsp;&nbsp;</li>
-                <li><i class="fas fa-heart"></i></li>
-                <li><i class="fas fa-heart"></i></li>
-                <li><i class="fas fa-heart"></i></li>
-                <li><i class="fas fa-heart"></i></li>
-                <li><i class="fas fa-heart"></i></li>
-            </ul>
-        </section> -->
+
         <canvas id='gameboard' width='505' height='606'>Your browswer can't play the game.</canvas>
         <p class="instructions">Help the Princess find her way home.  Use the arrow keys or WASD
             to move her to the water.  But remember - avoid touching the bugs!
@@ -32,7 +24,10 @@
                    <button class="nextGame" id="newGame">Start A New Game</button>
                    <button class="close" id="close">Close</button>
                </menu>
-           </dialog>
+        </dialog>
+        <audio preload="auto" src="sounds/Springtime-Dance.wav" type="audio/wav"
+               id="background-music" controls="controls" autoplay loop>This
+               browser doesn't support the <code>audio</code> element.</audio>
     </div>
 
     <script src="js/resources.js"></script>

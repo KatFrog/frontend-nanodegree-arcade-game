@@ -93,9 +93,14 @@ class Player extends Sprite {
 		this.y = y;
 		this.height = height;
 		this.width = width;
+		this.playing = false;
 	}
 
 	handleInput(direction) {
+		if (!this.playing) {
+			this.playing = true;
+			music.play();
+		}
 		switch (direction) {
 			case 'left':
 				if (this.x > 0) {
@@ -133,6 +138,7 @@ class Player extends Sprite {
 				allEnemies[i].x, allEnemies[i].y, allEnemies[i].height, allEnemies[i].width
 			);
 			if (hit) {
+				collide.play();
 				this.x = 2;
 				this.y = 5;
 				return;
@@ -181,6 +187,14 @@ let player = new Player();
 const closeModal = document.getElementById('close');
 const startGame = document.getElementById('newGame');
 const winDialog = document.getElementById('wonGame');
+
+const music = document.getElementById('background-music');
+
+let collide = new Audio;
+
+collide.src = "sounds/hit.wav";
+
+
 
 closeModal.addEventListener('click', function() {
 	winDialog.close();

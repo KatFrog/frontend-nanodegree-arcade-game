@@ -15,26 +15,6 @@ h1 {
     justify-content: center;
 }
 
-.lives {
-    display: block;
-    text-align: left;
-    width: 505px;
-}
-
-.lives ul {
-    display: inline-block;
-    margin: 0 5px 0 0;
-    padding: 0;
-}
-
-.lives li {
-    color: red;
-    display: inline-block;
-    font-family: Arial, sans-serif, serif;
-    font-weight: bold;
-    list-style: none;
-}
-
 .instructions {
     color: white;
     font-family: Arial, sans-serif, serif;
