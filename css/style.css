@@ -42,3 +42,24 @@ h1 {
     text-align: center;
     width: 505px;
 }
+
+.winnerMessage {
+    border-color: blue;
+    border-radius: 8px;
+    border-style: solid;
+    font-family: Arial, sans-serif, serif;
+    font-size: 24px;
+    font-weight: bolder;
+}
+
+.winButtons {
+    width: auto;
+}
+
+.nextGame {
+    margin: 0 10px 0 10px;
+}
+
+.close {
+    margin: 0 10px 0 10px;
+}
