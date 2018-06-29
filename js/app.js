@@ -26,15 +26,12 @@ class Sprite {
 };
 
 class Enemy extends Sprite {
-	constructor(imgFile = 'images/enemy-bug.png', speed = 1, x = -1, y = 2,
-		height = 68, width = 98) {
+	constructor(imgFile = 'images/enemy-bug.png', speed = 1, x = -1, y = 2) {
 		super();
 		this.sprite = imgFile;
 		this.speed = speed;
 		this.x = x;
 		this.y = y;
-		this.height = height;
-		this.width = width;
 	}
 
 	// Update the enemy's position, required method for game
@@ -50,15 +47,11 @@ class Enemy extends Sprite {
 }
 
 class Player extends Sprite {
-	constructor(imgFile = 'images/char-pink-girl.png', lives = 5, x = 2, y = 5,
-		height = 78, width = 73) {
+	constructor(imgFile = 'images/char-pink-girl.png', x = 2, y = 5) {
 		super();
 		this.sprite = imgFile;
-		this.lives = lives;
 		this.x = x;
 		this.y = y;
-		this.height = height;
-		this.width = width;
 		this.playing = false;
 	}
 
@@ -112,9 +105,6 @@ class Player extends Sprite {
 			hit = this.checkCollision(this, allEnemies[i]);
 			if (hit) {
 				collide.play();
-				debug1 = player;
-				debug2 = allEnemies[i];
-				console.log(debug1, debug2);
 				this.x = 2;
 				this.y = 5;
 				return;
