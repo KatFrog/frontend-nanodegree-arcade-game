@@ -15,48 +15,14 @@ class Sprite {
 			this.rowSize + 10); // The +10 is to get the image more centered.
 	}
 
-	findCorners(x, y, height, width) {
-
-		let corners = [];
-		x = x * this.colSize + 10;
-		y = y * this.rowSize + 10;
-		// Top left corner
-		corners[0] = {
-			x: x,
-			y: y
-		};
-		// Top right corner
-		corners[1] = {
-			x: x + width,
-			y: y
-		};
-		// Bottom right corner
-		corners[2] = {
-			x: x,
-			y: y + height
-		};
-		// Bottom right corner
-		corners[3] = {
-			x: x + width,
-			y: y + height
-		};
-		return corners;
-	}
-
-	checkCollision(ax, ay, aHeight, aWidth, bx, by, bHeight, bWidth) {
-		// check for a collision between object a and object b
-		let aCorners = this.findCorners(ax, ay, aHeight, aWidth);
-		bx = bx * this.colSize + 10;
-		by = by * this.rowSize + 10;
-		// Check each corner for a collision.  Return true if there is a hit.
-		for (let i = 0; i < aCorners.length; i++) {
-			if ((aCorners[i].x >= bx) && (aCorners[i].x <= (bx + bWidth)) &&
-				((aCorners[i].y >= bx) && (aCorners[i].y <= (by + bHeight)))) {
-				return true;
-			}
+	checkCollision(objA, objB) {
+		if (((objA.x === Math.floor(objB.x)) || (objA.x === Math.ceil(objB.x))) && (
+				objA.y === objB.y)) {
+			return true;
 		}
 		return false;
 	}
+
 };
 
 class Enemy extends Sprite {
@@ -132,24 +98,26 @@ class Player extends Sprite {
 
 	update() {
 		let hit = false;
-		// Check for collisions with the allEnemies
-		for (let i = 0; i < allEnemies.length; i++) {
-			hit = this.checkCollision(this.x, this.y, this.height, this.width,
-				allEnemies[i].x, allEnemies[i].y, allEnemies[i].height, allEnemies[i].width
-			);
-			if (hit) {
-				collide.play();
-				this.x = 2;
-				this.y = 5;
-				return;
-			}
-		}
+		let debug1, debug2;
 		// If the player makes it to the water, display winning modal
 		if (this.y === 0) {
 			this.winGame();
 			for (let i = 0; i < allEnemies.length; i++) {
 				allEnemies[i].speed = 0;
 				allEnemies[i].x = -1;
+			}
+		}
+		// Check for collisions with the allEnemies
+		for (let i = 0; i < allEnemies.length; ++i) {
+			hit = this.checkCollision(this, allEnemies[i]);
+			if (hit) {
+				collide.play();
+				debug1 = player;
+				debug2 = allEnemies[i];
+				console.log(debug1, debug2);
+				this.x = 2;
+				this.y = 5;
+				return;
 			}
 		}
 	}
