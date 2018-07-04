@@ -1,6 +1,3 @@
-//import * as Setup from './setup.js';
-//import * as Answers from 'js/answers.js';
-
 // Base class for the Player and Enemy subclasses
 class Sprite {
 
@@ -85,6 +82,7 @@ class Player extends Sprite {
 	}
 
 	winGame() {
+		const winDialog = document.getElementById('wonGame');
 		winDialog.showModal();
 	}
 
