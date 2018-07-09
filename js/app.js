@@ -85,6 +85,8 @@ class Player extends Sprite {
 	}
 
 	winGame() {
+		// **To Do - This is a temporary solution.
+		winDialog.closeModal();
 		winDialog.showModal();
 	}
 
