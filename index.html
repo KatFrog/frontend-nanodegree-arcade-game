@@ -17,19 +17,19 @@
         <p class="instructions">Help the Princess find her way home.  Use the arrow keys or WASD
             to move her to the water.  But remember - avoid touching the bugs!
         </p>
-        <dialog class="winnerMessage"  id="wonGame">
-               <p>Congratulations!  You helped rescue the Princess.</p>
-               <p>You can either stop now, or try helping her out again.</p>
-               <menu class="winButtons">
-                   <button class="nextGame" id="newGame">Start A New Game</button>
-                   <button class="close" id="close">Close</button>
-               </menu>
-        </dialog>
+
         <audio preload="auto" src="sounds/Springtime-Dance.wav" type="audio/wav"
                id="background-music" controls="controls" autoplay loop>This
                browser doesn't support the <code>audio</code> element.</audio>
     </div>
-
+    <dialog class="winnerMessage"  id="wonGame">
+           <p>Congratulations!  You helped rescue the Princess.</p>
+           <p>You can either stop now, or try helping her out again.</p>
+           <menu class="winButtons">
+               <button class="nextGame" id="newGame">Start A New Game</button>
+               <button class="close" id="close">Close</button>
+           </menu>
+    </dialog>
     <script src="js/resources.js"></script>
     <script src="js/app.js"></script>
     <script src="js/engine.js"></script>
