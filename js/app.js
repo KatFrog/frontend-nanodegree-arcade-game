@@ -83,6 +83,8 @@ class Player extends Sprite {
 
 	winGame() {
 		const winDialog = document.getElementById('wonGame');
+		// ** TO DO - Temporary solution to the modal problem
+		winDialog.closeModal();
 		winDialog.showModal();
 	}
 
