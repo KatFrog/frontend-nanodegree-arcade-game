@@ -82,23 +82,22 @@ class Player extends Sprite {
 	}
 
 	winGame() {
-		const winDialog = document.getElementById('wonGame');
-		// ** TO DO - Temporary solution to the modal problem
-		//winDialog.close();
+		gameWon = true;
 		winDialog.showModal();
 	}
 
 
 	update() {
 		let hit = false;
-		let debug1, debug2;
+
 		// If the player makes it to the water, display winning modal
-		if (this.y === 0) {
+		if ((this.y === 0) && (!gameWon)) {
 			this.winGame();
 			for (let i = 0; i < allEnemies.length; i++) {
 				allEnemies[i].speed = 0;
 				allEnemies[i].x = -1;
 			}
+			return;
 		}
 		// Check for collisions with the allEnemies
 		for (let i = 0; i < allEnemies.length; ++i) {
@@ -145,6 +144,7 @@ let player = new Player();
 const closeModal = document.getElementById('close');
 const startGame = document.getElementById('newGame');
 const winDialog = document.getElementById('wonGame');
+let gameWon = false;
 
 const music = document.getElementById('background-music');
 
