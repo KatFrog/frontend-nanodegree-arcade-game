@@ -25,11 +25,14 @@ h1 {
 
 .winnerMessage {
     border-color: blue;
-    border-radius: 8px;
+    border-radius: 50px;
     border-style: solid;
+    display: none;
     font-family: Arial, sans-serif, serif;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bolder;
+    height: auto;
+    width: 505px;
 }
 
 .winButtons {

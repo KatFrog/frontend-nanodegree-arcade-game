@@ -83,7 +83,7 @@ class Player extends Sprite {
 
 	winGame() {
 		gameWon = true;
-		winDialog.showModal();
+		winDialog.style.display = "block";
 	}
 
 
@@ -155,11 +155,11 @@ collide.src = "sounds/hit.wav";
 
 
 closeModal.addEventListener('click', function() {
-	winDialog.close();
+	winDialog.style.display = 'none';
 });
 
 startGame.addEventListener('click', function() {
-	winDialog.close();
+	winDialog.style.display = 'none';
 	window.location.reload(true);
 });
 
