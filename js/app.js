@@ -81,9 +81,11 @@ class Player extends Sprite {
 		}
 	}
 
-	winGame() {
+	winGame() { <<
+		<< << < HEAD
 		gameWon = true;
-		winDialog.style.display = "block";
+		winDialog.style.display = "block"; >>>
+		>>> > 15527 a77191ad720a1af43a765f68c3e8257981c
 	}
 
 
