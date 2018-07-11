@@ -13,8 +13,31 @@ class Sprite {
 	}
 
 	checkCollision(objA, objB) {
-		if (((objA.x === Math.floor(objB.x)) || (objA.x === Math.ceil(objB.x))) && (
-				objA.y === objB.y)) {
+		// Size of bugs = W: 98px H: 68px
+		// Size of princess = W: 73px H: 78px
+		// Determine the exact location of objA and objB.
+		// The x coordinates are based on the grid.
+
+		let objASides = {
+			left: (objA.x * this.colSize),
+			right: ((objA.x * this.colSize) + 73)
+		};
+		// Magic Number Alert!  73 and 98 are magic numbers based on the
+		// sizes of the images for the Princess and the bugs.
+		let objBSides = {
+			left: (objB.x * this.colSize),
+			right: ((objB.x * this.colSize) + 98)
+		};
+
+		// Huge if statement, it basically asks:
+		// If objA and objB are in the same row (y)
+		// And either side of objA lands between the two sides of objB
+		// Then record a collision (return true)
+		if ((objA.y === objB.y) &&
+			(((objASides.left >= objBSides.left) &&
+					(objASides.left <= objBSides.right)) ||
+				((objASides.right >= objBSides.left) &&
+					(objASides.right <= objBSides.right)))) {
 			return true;
 		}
 		return false;
