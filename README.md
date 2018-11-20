@@ -9,7 +9,7 @@ Here you try to lead the princess to the water, past the bug roadway.  If a
 bug touches the princess, she immediately goes back to where she started.  If
 she gets across, you win.  
 
-You can play at the game at [here](https://katfrog.github.io/rescue-the-princess/). Or you can download the code
+You can play at the game at [here](https://katfrog.github.io/udacity-rescue-the-princess/). Or you can download the code
 and run the index.html file.  See the [Git Help pages for more information about
 how to do this](https://help.github.com/articles/fork-a-repo/).
 
